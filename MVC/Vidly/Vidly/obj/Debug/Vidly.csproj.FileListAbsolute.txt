@@ -80,3 +80,8 @@ C:\MyProjects\MVC\Vidly\Vidly\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 C:\MyProjects\MVC\Vidly\Vidly\obj\Debug\Vidly.dll
 C:\MyProjects\MVC\Vidly\Vidly\obj\Debug\Vidly.pdb
 C:\MyProjects\MVC\Vidly\Vidly\obj\Debug\Vidly.csprojResolveAssemblyReference.cache
+C:\MyProjects\MVC\Vidly\Vidly\obj\Debug\Vidly.Migrations.InitialModel.resources
+C:\MyProjects\MVC\Vidly\Vidly\obj\Debug\Vidly.csproj.GenerateResource.Cache
+C:\MyProjects\MVC\Vidly\Vidly\obj\Debug\Vidly.Migrations.AddIsSubscribedToCustomer.resources
+C:\MyProjects\MVC\Vidly\Vidly\obj\Debug\Vidly.Migrations.AddmemberShipType.resources
+C:\MyProjects\MVC\Vidly\Vidly\obj\Debug\Vidly.Migrations.PopulateMemberShipTypes.resources
