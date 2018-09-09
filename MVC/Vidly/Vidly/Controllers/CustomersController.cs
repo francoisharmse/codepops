@@ -42,7 +42,12 @@ namespace Vidly.Controllers
         /// <returns></returns>
         public ActionResult New()
         {
-            return View();
+            var membershipTypes = _dbContext.MemberShipTypes.ToList();
+            var viewModel = new NewCustomerViewModel()
+            {
+                MemberShipTypes = membershipTypes
+            };
+            return View(viewModel);
         }
         public static List<Customer> GetCustomers()
         {

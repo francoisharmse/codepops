@@ -21,10 +21,11 @@ namespace Vidly.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         /// <summary>
-        /// created a DbSet to create a table from the models Movie and Customer
+        /// created a DbSet to create a table from the models Movie and Customer, MembershipTypes
         /// </summary>
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Movie> Movies { get; set; }
+        public DbSet<MemberShipType> MemberShipTypes { get; set; }
 
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)

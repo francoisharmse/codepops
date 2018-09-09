@@ -30,6 +30,8 @@ namespace Vidly.Models
         /// <summary>
         /// entity framework identifies this convention and treats this as a foreign key property
         /// </summary>
+        [Display(Name = "Membership type")]
+
         public byte MembershipTypeId { get; set; }
 
         /// <summary>

@@ -265,6 +265,7 @@
     <Compile Include="ViewModels\DetailMovieViewModel.cs" />
     <Compile Include="ViewModels\ListAllCustomersViewModel.cs" />
     <Compile Include="ViewModels\ListAllMoviesViewModel.cs" />
+    <Compile Include="ViewModels\NewCustomerViewModel.cs" />
     <Compile Include="ViewModels\RandomMovieViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
