@@ -1,9 +1,17 @@
-﻿@model Vidly.ViewModels.DetailCustomerViewModel
+﻿@using Microsoft.Ajax.Utilities
+@model Vidly.ViewModels.DetailCustomerViewModel
 @{
-    ViewBag.Title = "List of all Movies";
+    ViewBag.Title = "List of all Customers";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 
 <h2>Listing Customer Details</h2>
 <h3>@Model.Customer.Name</h3>
+<ul>
+  <li>Membership Type: @Model.Customer.MemberShipType.MemberShipTypeName</li>
+  @if (@Model.Customer.BirthDate.ToShortDateString() != "1900/01/01")
+  {
+    <li>Birthdate: @Model.Customer.BirthDate.ToShortDateString()</li>
+  }
+</ul>

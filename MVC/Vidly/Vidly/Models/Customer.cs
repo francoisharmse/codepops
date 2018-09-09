@@ -32,5 +32,9 @@ namespace Vidly.Models
         /// </summary>
         public byte MembershipTypeId { get; set; }
 
+        /// <summary>
+        /// set birthdate - this field is optional
+        /// </summary>
+        public DateTime BirthDate { get; set; }
     }
 }

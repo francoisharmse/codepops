@@ -231,6 +231,26 @@
     <Compile Include="Migrations\201809091539122_PopulateMembershipTypeDescription.Designer.cs">
       <DependentUpon>201809091539122_PopulateMembershipTypeDescription.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201809091610189_AddedDateOfBirthToCustomer.cs" />
+    <Compile Include="Migrations\201809091610189_AddedDateOfBirthToCustomer.Designer.cs">
+      <DependentUpon>201809091610189_AddedDateOfBirthToCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809091626152_AddedGenresAndMovieMetaInformation.cs" />
+    <Compile Include="Migrations\201809091626152_AddedGenresAndMovieMetaInformation.Designer.cs">
+      <DependentUpon>201809091626152_AddedGenresAndMovieMetaInformation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809091627182_PopulateGenreDataList.cs" />
+    <Compile Include="Migrations\201809091627182_PopulateGenreDataList.Designer.cs">
+      <DependentUpon>201809091627182_PopulateGenreDataList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809091700052_PopulateGenreDataList1.cs" />
+    <Compile Include="Migrations\201809091700052_PopulateGenreDataList1.Designer.cs">
+      <DependentUpon>201809091700052_PopulateGenreDataList1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809091700516_PopulateGenreDataList2.cs" />
+    <Compile Include="Migrations\201809091700516_PopulateGenreDataList2.Designer.cs">
+      <DependentUpon>201809091700516_PopulateGenreDataList2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -238,9 +258,11 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MemberShipType.cs" />
     <Compile Include="Models\Movie.cs" />
+    <Compile Include="Models\MovieGenre.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\DetailCustomerViewModel.cs" />
+    <Compile Include="ViewModels\DetailMovieViewModel.cs" />
     <Compile Include="ViewModels\ListAllCustomersViewModel.cs" />
     <Compile Include="ViewModels\ListAllMoviesViewModel.cs" />
     <Compile Include="ViewModels\RandomMovieViewModel.cs" />
@@ -313,6 +335,7 @@
     <Content Include="Views\Customers\ListCustomers.cshtml" />
     <Content Include="Views\Customers\Details.cshtml" />
     <Content Include="Views\Customers\Index.cshtml" />
+    <Content Include="Views\Movies\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -346,6 +369,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201809091539122_PopulateMembershipTypeDescription.resx">
       <DependentUpon>201809091539122_PopulateMembershipTypeDescription.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809091610189_AddedDateOfBirthToCustomer.resx">
+      <DependentUpon>201809091610189_AddedDateOfBirthToCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809091626152_AddedGenresAndMovieMetaInformation.resx">
+      <DependentUpon>201809091626152_AddedGenresAndMovieMetaInformation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809091627182_PopulateGenreDataList.resx">
+      <DependentUpon>201809091627182_PopulateGenreDataList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809091700052_PopulateGenreDataList1.resx">
+      <DependentUpon>201809091700052_PopulateGenreDataList1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809091700516_PopulateGenreDataList2.resx">
+      <DependentUpon>201809091700516_PopulateGenreDataList2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

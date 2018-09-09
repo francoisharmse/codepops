@@ -7,6 +7,7 @@ using System.Web.Instrumentation;
 using System.Web.Mvc;
 using Vidly.Models;
 using Vidly.ViewModels;
+using System.Data.Entity;
 
 namespace Vidly.Controllers
 {
@@ -15,31 +16,52 @@ namespace Vidly.Controllers
     /// </summary>
     public class MoviesController : Controller
     {
+
+        private ApplicationDbContext _dbContext;
+
+        ///// <summary>
+        ///// created a public static list of movies so that other code can use the same list of movies
+        ///// </summary>
+        //public static List<Movie> movies = new List<Movie>()
+        //{
+        //    new Movie {Name = "Shrek 1"},
+        //    new Movie {Name = "Shrek 2"},
+        //    new Movie {Name = "Bold and the Beautiful"},
+        //    new Movie {Name = "Shark Tail 1"},
+        //    new Movie {Name = "Shark Tail 2"},
+        //    new Movie {Name = "Pink Panther"},
+        //    new Movie {Name = "Black Beauty"},
+        //    new Movie {Name = "Once more"},
+        //    new Movie {Name = "Die hard 1"},
+        //    new Movie {Name = "Die hard 2"},
+        //    new Movie {Name = "Die hard 3"},
+        //    new Movie {Name = "Die hard 4"},
+        //    new Movie {Name = "Die hard 5"},
+        //    new Movie {Name = "Fast and Furious 1"},
+        //    new Movie {Name = "Fast and Furious 2"},
+        //    new Movie {Name = "Fast and Furious 3"},
+        //    new Movie {Name = "Fast and Furious 4"},
+        //    new Movie {Name = "Fast and Furious 5"},
+        //    new Movie {Name = "Fast and Furious 6"}
+        //};
+
+
         /// <summary>
-        /// created a public static list of movies so that other code can use the same list of movies
+        /// Default constructor - constructing db context
         /// </summary>
-        public static List<Movie> movies = new List<Movie>()
+        public MoviesController()
         {
-            new Movie {Name = "Shrek 1"},
-            new Movie {Name = "Shrek 2"},
-            new Movie {Name = "Bold and the Beautiful"},
-            new Movie {Name = "Shark Tail 1"},
-            new Movie {Name = "Shark Tail 2"},
-            new Movie {Name = "Pink Panther"},
-            new Movie {Name = "Black Beauty"},
-            new Movie {Name = "Once more"},
-            new Movie {Name = "Die hard 1"},
-            new Movie {Name = "Die hard 2"},
-            new Movie {Name = "Die hard 3"},
-            new Movie {Name = "Die hard 4"},
-            new Movie {Name = "Die hard 5"},
-            new Movie {Name = "Fast and Furious 1"},
-            new Movie {Name = "Fast and Furious 2"},
-            new Movie {Name = "Fast and Furious 3"},
-            new Movie {Name = "Fast and Furious 4"},
-            new Movie {Name = "Fast and Furious 5"},
-            new Movie {Name = "Fast and Furious 6"}
-        };
+            _dbContext = new ApplicationDbContext();
+        }
+
+        /// <summary>
+        /// Dispose DB Context
+        /// </summary>
+        /// <param name="disposing"></param>
+        protected override void Dispose(bool disposing)
+        {
+            _dbContext.Dispose();
+        }
 
         // GET: Movies
         /// <summary>
@@ -110,11 +132,23 @@ namespace Vidly.Controllers
         /// <returns></returns>
         public ActionResult ListMovies()
         {
-
-
-            var listAllMovies = new ListAllMoviesViewModel { Movies = movies };
+            var listAllMovies = new ListAllMoviesViewModel { Movies = _dbContext.Movies.Include(m => m.MovieGenre).ToList() };
 
             return View(listAllMovies);
+        }
+
+        /// <summary>
+        /// Get Movie Detail - including Genre which is foreign key linked table
+        /// </summary>
+        /// <param name="id">id of movie</param>
+        /// <returns></returns>
+        [Route("movie/details/{id}")]
+
+        public ActionResult Details(int id)
+        {
+            //get movie detail from DB, with Include which links the Genre table / object
+            var movieDetail = new DetailMovieViewModel() { Movie = _dbContext.Movies.Include(c => c.MovieGenre).SingleOrDefault(customer => customer.Id == id) };
+            return View(movieDetail);
         }
     }
 }

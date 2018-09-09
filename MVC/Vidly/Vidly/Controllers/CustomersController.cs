@@ -79,7 +79,7 @@ namespace Vidly.Controllers
             if (id > _dbContext.Customers.Count() + 1 || id < 1)
                 return HttpNotFound();
 
-            var customerDetail = new DetailCustomerViewModel() { Customer = _dbContext.Customers.SingleOrDefault(customer => customer.Id == id) };
+            var customerDetail = new DetailCustomerViewModel() { Customer = _dbContext.Customers.Include(c => c.MemberShipType).SingleOrDefault(customer => customer.Id == id) };
             return View(customerDetail);
         }
     }

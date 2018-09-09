@@ -88,3 +88,8 @@ C:\MyProjects\MVC\Vidly\Vidly\obj\Debug\Vidly.pdb
 C:\MyProjects\MVC\Vidly\Vidly\obj\Debug\Vidly.csprojResolveAssemblyReference.cache
 C:\MyProjects\MVC\Vidly\Vidly\obj\Debug\Vidly.Migrations.AddedMembershipTypeDescription.resources
 C:\MyProjects\MVC\Vidly\Vidly\obj\Debug\Vidly.Migrations.PopulateMembershipTypeDescription.resources
+C:\MyProjects\MVC\Vidly\Vidly\obj\Debug\Vidly.Migrations.AddedDateOfBirthToCustomer.resources
+C:\MyProjects\MVC\Vidly\Vidly\obj\Debug\Vidly.Migrations.AddedGenresAndMovieMetaInformation.resources
+C:\MyProjects\MVC\Vidly\Vidly\obj\Debug\Vidly.Migrations.PopulateGenreDataList.resources
+C:\MyProjects\MVC\Vidly\Vidly\obj\Debug\Vidly.Migrations.PopulateGenreDataList1.resources
+C:\MyProjects\MVC\Vidly\Vidly\obj\Debug\Vidly.Migrations.PopulateGenreDataList2.resources
