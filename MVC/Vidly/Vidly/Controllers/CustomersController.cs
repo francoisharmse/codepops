@@ -36,6 +36,14 @@ namespace Vidly.Controllers
             _dbContext.Dispose();
         }
 
+        /// <summary>
+        /// Add new customer form
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult New()
+        {
+            return View();
+        }
         public static List<Customer> GetCustomers()
         {
             return new List<Customer>()

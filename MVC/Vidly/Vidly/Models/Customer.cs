@@ -35,6 +35,7 @@ namespace Vidly.Models
         /// <summary>
         /// set birthdate - this field is optional
         /// </summary>
+        [Display(Name = "Date of birth")]
         public DateTime BirthDate { get; set; }
     }
 }
