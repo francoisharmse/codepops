@@ -7,6 +7,7 @@ using System.Web.Instrumentation;
 using System.Web.Mvc;
 using Vidly.Models;
 using Vidly.ViewModels;
+using System.Data.Entity;
 
 namespace Vidly.Controllers
 {
@@ -61,7 +62,7 @@ namespace Vidly.Controllers
             //by calling the toList() now - EntityFramework executes the query
             //else it would only have executed in the View method.
             //var listAllCustomers = _dbContext.Customers.ToList();
-            var listAllCustomers = new ListAllCustomersViewModel { Customers = _dbContext.Customers.ToList() };
+            var listAllCustomers = new ListAllCustomersViewModel { Customers = _dbContext.Customers.Include(c => c.MemberShipType).ToList() };
 
             return View(listAllCustomers);
         }
