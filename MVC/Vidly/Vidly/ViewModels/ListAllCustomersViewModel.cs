@@ -7,12 +7,12 @@ using Vidly.Models;
 namespace Vidly.ViewModels
 {
     /// <summary>
-    /// controller listing all moving
+    /// controller listing all customers
     /// </summary>
     public class ListAllCustomersViewModel
     {
         /// <summary>
-        /// listing all movies
+        /// listing all customers
         /// </summary>
         public List<Customer> Customers { get; set; }
     }

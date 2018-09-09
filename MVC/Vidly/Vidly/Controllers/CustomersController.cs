@@ -17,17 +17,36 @@ namespace Vidly.Controllers
     {
 
         /// <summary>
-        /// created a public static list of customers for now - so that other code can use the same list of customers.
+        /// creating a db context
         /// </summary>
-        public static List<Customer> customers = new List<Customer>()
+        private ApplicationDbContext _dbContext;
+
+        public CustomersController()
         {
-            new Customer {Id = 6, Name = "John Doe"},
-            new Customer {Id = 1, Name = "Sarah Mary"},
-            new Customer {Id = 2, Name = "James May"},
-            new Customer {Id = 3, Name = "Robert James"},
-            new Customer {Id = 4, Name = "Brenda May"},
-            new Customer {Id = 5, Name = "Frik Slabbert"}
-        };
+            _dbContext = new ApplicationDbContext();
+        }
+
+        /// <summary>
+        /// properly disposing of _dbContext
+        /// </summary>
+        /// <param name="disposing"></param>
+        protected override void Dispose(bool disposing)
+        {
+            _dbContext.Dispose();
+        }
+
+        public static List<Customer> GetCustomers()
+        {
+            return new List<Customer>()
+            {
+                new Customer {Id = 6, Name = "John Doe"},
+                new Customer {Id = 1, Name = "Sarah Mary"},
+                new Customer {Id = 2, Name = "James May"},
+                new Customer {Id = 3, Name = "Robert James"},
+                new Customer {Id = 4, Name = "Brenda May"},
+                new Customer {Id = 5, Name = "Frik Slabbert"}
+            };
+        }
 
         /// <summary>
         /// GET: List Customers
@@ -35,7 +54,14 @@ namespace Vidly.Controllers
         /// <returns></returns>
         public ActionResult ListCustomers()
         {
-            var listAllCustomers = new ListAllCustomersViewModel { Customers = customers };
+            //this was using the hardcoded customer list above
+            //var listAllCustomers = new ListAllCustomersViewModel { Customers = GetCustomers() };
+
+            //now using the DB context
+            //by calling the toList() now - EntityFramework executes the query
+            //else it would only have executed in the View method.
+            //var listAllCustomers = _dbContext.Customers.ToList();
+            var listAllCustomers = new ListAllCustomersViewModel { Customers = _dbContext.Customers.ToList() };
 
             return View(listAllCustomers);
         }
@@ -48,10 +74,11 @@ namespace Vidly.Controllers
         [Route("customer/details/{id}")]
         public ActionResult Details(int id)
         {
-            if (id > customers.Count || id < 1)
+            //check if id is within the number of records in the DB (number of customers)
+            if (id > _dbContext.Customers.Count() + 1 || id < 1)
                 return HttpNotFound();
 
-            var customerDetail = new DetailCustomerViewModel() { Customer = customers.Find(customer => customer.Id == id) };
+            var customerDetail = new DetailCustomerViewModel() { Customer = _dbContext.Customers.SingleOrDefault(customer => customer.Id == id) };
             return View(customerDetail);
         }
     }

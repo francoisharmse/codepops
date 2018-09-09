@@ -51,7 +51,7 @@ namespace Vidly.Controllers
             var movie = new Movie() { Name = "Shrek!" };
 
             //use list of customers already defined in CustomerController
-            var customers = CustomersController.customers;
+            var customers = CustomersController.GetCustomers();
 
             var viewModel = new RandomMovieViewModel { Movie = movie, Customers = customers };
 
