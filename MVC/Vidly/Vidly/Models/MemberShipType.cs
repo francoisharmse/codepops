@@ -29,5 +29,10 @@ namespace Vidly.Models
         /// discount rate for customer
         /// </summary>
         public byte Discount { get; set; }
+
+        /// <summary>
+        /// a description of the membership type
+        /// </summary>
+        public string MemberShipTypeName { get; set; }
     }
 }
