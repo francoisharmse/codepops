@@ -15,6 +15,32 @@ namespace Vidly.Controllers
     /// </summary>
     public class MoviesController : Controller
     {
+        /// <summary>
+        /// created a public static list of movies so that other code can use the same list of movies
+        /// </summary>
+        public static List<Movie> movies = new List<Movie>()
+        {
+            new Movie {Name = "Shrek 1"},
+            new Movie {Name = "Shrek 2"},
+            new Movie {Name = "Bold and the Beautiful"},
+            new Movie {Name = "Shark Tail 1"},
+            new Movie {Name = "Shark Tail 2"},
+            new Movie {Name = "Pink Panther"},
+            new Movie {Name = "Black Beauty"},
+            new Movie {Name = "Once more"},
+            new Movie {Name = "Die hard 1"},
+            new Movie {Name = "Die hard 2"},
+            new Movie {Name = "Die hard 3"},
+            new Movie {Name = "Die hard 4"},
+            new Movie {Name = "Die hard 5"},
+            new Movie {Name = "Fast and Furious 1"},
+            new Movie {Name = "Fast and Furious 2"},
+            new Movie {Name = "Fast and Furious 3"},
+            new Movie {Name = "Fast and Furious 4"},
+            new Movie {Name = "Fast and Furious 5"},
+            new Movie {Name = "Fast and Furious 6"}
+        };
+
         // GET: Movies
         /// <summary>
         /// gets random movies function / method - demonstrating return types
@@ -24,17 +50,8 @@ namespace Vidly.Controllers
         {
             var movie = new Movie() { Name = "Shrek!" };
 
-            var customers = new List<Customer>()
-            {
-                new Customer {Name = "Customer 1"},
-                new Customer {Name = "Customer 2"},
-                new Customer {Name = "Customer 3"},
-                new Customer {Name = "Customer 4"},
-                new Customer {Name = "Customer 5"},
-                new Customer {Name = "Customer 6"},
-                new Customer {Name = "Customer 7"},
-                new Customer {Name = "Customer 8"}
-            };
+            //use list of customers already defined in CustomerController
+            var customers = CustomersController.customers;
 
             var viewModel = new RandomMovieViewModel { Movie = movie, Customers = customers };
 
@@ -85,6 +102,19 @@ namespace Vidly.Controllers
         public ActionResult ByReleaseDate(int year, int month)
         {
             return Content(string.Format("{0}/{1}", year, month));
+        }
+
+        /// <summary>
+        /// GET: List Movies
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult ListMovies()
+        {
+
+
+            var listAllMovies = new ListAllMoviesViewModel { Movies = movies };
+
+            return View(listAllMovies);
         }
     }
 }
