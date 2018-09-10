@@ -251,6 +251,14 @@
     <Compile Include="Migrations\201809091700516_PopulateGenreDataList2.Designer.cs">
       <DependentUpon>201809091700516_PopulateGenreDataList2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201809100714135_AddedAgeToCustomerColumn.cs" />
+    <Compile Include="Migrations\201809100714135_AddedAgeToCustomerColumn.Designer.cs">
+      <DependentUpon>201809100714135_AddedAgeToCustomerColumn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809100717446_PopulateAgesWithValues.cs" />
+    <Compile Include="Migrations\201809100717446_PopulateAgesWithValues.Designer.cs">
+      <DependentUpon>201809100717446_PopulateAgesWithValues.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -386,6 +394,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201809091700516_PopulateGenreDataList2.resx">
       <DependentUpon>201809091700516_PopulateGenreDataList2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809100714135_AddedAgeToCustomerColumn.resx">
+      <DependentUpon>201809100714135_AddedAgeToCustomerColumn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809100717446_PopulateAgesWithValues.resx">
+      <DependentUpon>201809100717446_PopulateAgesWithValues.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

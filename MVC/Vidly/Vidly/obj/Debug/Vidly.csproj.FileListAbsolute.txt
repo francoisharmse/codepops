@@ -93,3 +93,5 @@ C:\MyProjects\MVC\Vidly\Vidly\obj\Debug\Vidly.Migrations.AddedGenresAndMovieMeta
 C:\MyProjects\MVC\Vidly\Vidly\obj\Debug\Vidly.Migrations.PopulateGenreDataList.resources
 C:\MyProjects\MVC\Vidly\Vidly\obj\Debug\Vidly.Migrations.PopulateGenreDataList1.resources
 C:\MyProjects\MVC\Vidly\Vidly\obj\Debug\Vidly.Migrations.PopulateGenreDataList2.resources
+C:\MyProjects\MVC\Vidly\Vidly\obj\Debug\Vidly.Migrations.AddedAgeToCustomerColumn.resources
+C:\MyProjects\MVC\Vidly\Vidly\obj\Debug\Vidly.Migrations.PopulateAgesWithValues.resources

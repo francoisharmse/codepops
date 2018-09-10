@@ -39,5 +39,10 @@ namespace Vidly.Models
         /// </summary>
         [Display(Name = "Date of birth")]
         public DateTime BirthDate { get; set; }
+
+        /// <summary>
+        /// age of customer
+        /// </summary>
+        public int Age { get; set; }
     }
 }
