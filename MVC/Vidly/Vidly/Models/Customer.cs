@@ -20,6 +20,10 @@ namespace Vidly.Models
         [Required]
         [StringLength(255)]
         public string  Name { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public bool IsSubScribedToNewsLetter { get; set; }
 
         /// <summary>
@@ -31,7 +35,6 @@ namespace Vidly.Models
         /// entity framework identifies this convention and treats this as a foreign key property
         /// </summary>
         [Display(Name = "Membership type")]
-
         public byte MembershipTypeId { get; set; }
 
         /// <summary>
@@ -40,9 +43,9 @@ namespace Vidly.Models
         [Display(Name = "Date of birth")]
         public DateTime BirthDate { get; set; }
 
-        /// <summary>
-        /// age of customer
-        /// </summary>
-        public int Age { get; set; }
+        public int age { get; set; }
+
+
+
     }
 }

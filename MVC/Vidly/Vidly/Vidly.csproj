@@ -259,6 +259,30 @@
     <Compile Include="Migrations\201809100717446_PopulateAgesWithValues.Designer.cs">
       <DependentUpon>201809100717446_PopulateAgesWithValues.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201809100756107_deletedagecolumn.cs" />
+    <Compile Include="Migrations\201809100756107_deletedagecolumn.Designer.cs">
+      <DependentUpon>201809100756107_deletedagecolumn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809101052232_addedtwofields.cs" />
+    <Compile Include="Migrations\201809101052232_addedtwofields.Designer.cs">
+      <DependentUpon>201809101052232_addedtwofields.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809101053539_addedtwofields2.cs" />
+    <Compile Include="Migrations\201809101053539_addedtwofields2.Designer.cs">
+      <DependentUpon>201809101053539_addedtwofields2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809101054574_customdtascripts.cs" />
+    <Compile Include="Migrations\201809101054574_customdtascripts.Designer.cs">
+      <DependentUpon>201809101054574_customdtascripts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809111427560_AddedAge.cs" />
+    <Compile Include="Migrations\201809111427560_AddedAge.Designer.cs">
+      <DependentUpon>201809111427560_AddedAge.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809111429066_NewSqlstuff.cs" />
+    <Compile Include="Migrations\201809111429066_NewSqlstuff.Designer.cs">
+      <DependentUpon>201809111429066_NewSqlstuff.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -400,6 +424,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201809100717446_PopulateAgesWithValues.resx">
       <DependentUpon>201809100717446_PopulateAgesWithValues.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809100756107_deletedagecolumn.resx">
+      <DependentUpon>201809100756107_deletedagecolumn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809101052232_addedtwofields.resx">
+      <DependentUpon>201809101052232_addedtwofields.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809101053539_addedtwofields2.resx">
+      <DependentUpon>201809101053539_addedtwofields2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809101054574_customdtascripts.resx">
+      <DependentUpon>201809101054574_customdtascripts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809111427560_AddedAge.resx">
+      <DependentUpon>201809111427560_AddedAge.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809111429066_NewSqlstuff.resx">
+      <DependentUpon>201809111429066_NewSqlstuff.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

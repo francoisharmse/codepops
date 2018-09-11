@@ -95,3 +95,8 @@ C:\MyProjects\MVC\Vidly\Vidly\obj\Debug\Vidly.Migrations.PopulateGenreDataList1.
 C:\MyProjects\MVC\Vidly\Vidly\obj\Debug\Vidly.Migrations.PopulateGenreDataList2.resources
 C:\MyProjects\MVC\Vidly\Vidly\obj\Debug\Vidly.Migrations.AddedAgeToCustomerColumn.resources
 C:\MyProjects\MVC\Vidly\Vidly\obj\Debug\Vidly.Migrations.PopulateAgesWithValues.resources
+C:\MyProjects\MVC\Vidly\Vidly\obj\Debug\Vidly.Migrations.deletedagecolumn.resources
+C:\MyProjects\MVC\Vidly\Vidly\obj\Debug\Vidly.Migrations.addedtwofields.resources
+C:\MyProjects\MVC\Vidly\Vidly\obj\Debug\Vidly.Migrations.addedtwofields2.resources
+C:\MyProjects\MVC\Vidly\Vidly\obj\Debug\Vidly.Migrations.customdtascripts.resources
+C:\MyProjects\MVC\Vidly\Vidly\obj\Debug\Vidly.Migrations.AddedAge.resources
