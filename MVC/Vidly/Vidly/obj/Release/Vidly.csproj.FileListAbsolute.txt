@@ -204,3 +204,6 @@ C:\mycode\codepops\MVC\Vidly\Vidly\obj\Release\Vidly.csproj.GenerateResource.Cac
 C:\mycode\codepops\MVC\Vidly\Vidly\obj\Release\Vidly.csproj.CoreCompileInputs.cache
 C:\mycode\codepops\MVC\Vidly\Vidly\obj\Release\Vidly.dll
 C:\mycode\codepops\MVC\Vidly\Vidly\obj\Release\Vidly.pdb
+C:\mycode\codepops\MVC\Vidly\Vidly\obj\Release\Vidly.Migrations.removedAgePropertyFromCustomer.resources
+C:\mycode\codepops\MVC\Vidly\Vidly\obj\Release\Vidly.Migrations.DeleteYolandiRecords.resources
+C:\mycode\codepops\MVC\Vidly\Vidly\obj\Release\Vidly.Migrations.AddedMovieGenereId.resources

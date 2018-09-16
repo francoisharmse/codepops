@@ -15,23 +15,23 @@
 else
 {
     <table class="table table-bordered table-hover">
-      <thead class="font-weight-bold">Movies</thead>
-      <tr>
-        <th class="font-weight-bold col-sm-1">Movie index</th>
-        <th class="font-weight-bold">Movie Name</th>
-        <th class="font-weight-bold">Genre</th>
-      </tr>
-      <tbody class="body-content">
-        @foreach (var movie in @Model.Movies)
-        {
-            <tr class="d-lg-table-row">
-              <td class="table-light col-1">@movie.Id</td>
-              <td class="justify-content-sm-start">@Html.ActionLink(@movie.Name, "Details", "Movies", new { id = @movie.Id }, null)</td>
-              <td class="table-light col-1">@movie.MovieGenre.GenreDescription</td>
-            </tr>
-        }
-      </tbody>
+        <thead class="font-weight-bold">Movies</thead>
+        <tr>
+            <th class="font-weight-bold col-sm-1">Movie index</th>
+            <th class="font-weight-bold">Movie Name</th>
+            <th class="font-weight-bold">Genre</th>
+        </tr>
+        <tbody class="body-content">
+            @foreach (var movie in @Model.Movies)
+            {
+                <tr class="d-lg-table-row">
+                    <td class="table-light col-1">@movie.Id</td>
+                    <td class="justify-content-sm-start">@Html.ActionLink(@movie.Name, "Edit", "Movies", new { id = @movie.Id }, null)</td>
+                    <td class="table-light col-1">@movie.MovieGenre.GenreDescription</td>
+                </tr>
+            }
+        </tbody>
     </table>
-
+    @Html.ActionLink("Add Movie", "New", "Movies", null, new { @class = "btn btn-primary" })
 }
 

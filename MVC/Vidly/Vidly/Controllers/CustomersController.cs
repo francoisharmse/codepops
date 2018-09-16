@@ -43,17 +43,46 @@ namespace Vidly.Controllers
         public ActionResult New()
         {
             var membershipTypes = _dbContext.MemberShipTypes.ToList();
-            var viewModel = new CusromerFormViewModel()
+            var viewModel = new CustomerFormViewModel()
             {
+                Customer = new Customer(),
                 MemberShipTypes = membershipTypes
             };
             return View("CustomerForm", viewModel);
         }
 
+
+        /// <summary>
+        /// saving the customer form
+        /// </summary>
+        /// <param name="customer">customer object </param>
+        /// <returns></returns>
         [HttpPost]
-        public ActionResult Create(Customer customer)
+        [ValidateAntiForgeryToken]
+        public ActionResult Save(Customer customer)
         {
-            _dbContext.Customers.Add(customer);
+            if (!ModelState.IsValid)
+            {
+                var viewModel = new CustomerFormViewModel
+                {
+                    Customer = customer,
+                    MemberShipTypes = _dbContext.MemberShipTypes.ToList()
+                };
+                return View("CustomerForm", viewModel);
+            }
+
+            if (customer.Id == 0)
+                _dbContext.Customers.Add(customer);
+            else
+            {
+                var customerInDb = _dbContext.Customers.FirstOrDefault(c => c.Id == customer.Id);
+
+                customerInDb.Name = customer.Name;
+                customerInDb.BirthDate= customer.BirthDate;
+                customerInDb.IsSubScribedToNewsLetter= customer.IsSubScribedToNewsLetter;
+                customerInDb.MembershipTypeId= customer.MembershipTypeId;
+            }
+            //_dbContext.Customers.Add(customer);
             _dbContext.SaveChanges();
 
             return RedirectToAction("ListCustomers", "Customers");
@@ -107,6 +136,11 @@ namespace Vidly.Controllers
             return View(customerDetail);
         }
 
+        /// <summary>
+        /// edit a customer
+        /// </summary>
+        /// <param name="id">insert ID of customer</param>
+        /// <returns></returns>
         public ActionResult Edit(int id)
         {
             var customer = _dbContext.Customers.FirstOrDefault(c => c.Id == id);
@@ -114,7 +148,7 @@ namespace Vidly.Controllers
             if (customer == null)
                 return HttpNotFound();
 
-            var viewModel = new CusromerFormViewModel
+            var viewModel = new CustomerFormViewModel
             {
                 Customer = customer,
                 MemberShipTypes = _dbContext.MemberShipTypes.ToList()

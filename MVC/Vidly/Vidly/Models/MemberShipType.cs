@@ -34,5 +34,8 @@ namespace Vidly.Models
         /// a description of the membership type
         /// </summary>
         public string MemberShipTypeName { get; set; }
+
+        public static readonly byte Unknown = 0;
+        public static readonly byte PayAsYouGo = 0;
     }
 }

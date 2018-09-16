@@ -284,12 +284,29 @@
     <Compile Include="Migrations\201809111429066_NewSqlstuff.Designer.cs">
       <DependentUpon>201809111429066_NewSqlstuff.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201809160800448_removedAgePropertyFromCustomer.cs" />
+    <Compile Include="Migrations\201809160800448_removedAgePropertyFromCustomer.Designer.cs">
+      <DependentUpon>201809160800448_removedAgePropertyFromCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809160856490_DeleteYolandiRecords.cs" />
+    <Compile Include="Migrations\201809160856490_DeleteYolandiRecords.Designer.cs">
+      <DependentUpon>201809160856490_DeleteYolandiRecords.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809161008017_AddedMovieGenereId.cs" />
+    <Compile Include="Migrations\201809161008017_AddedMovieGenereId.Designer.cs">
+      <DependentUpon>201809161008017_AddedMovieGenereId.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809161114060_UpdatedCustomerNUllableFields.cs" />
+    <Compile Include="Migrations\201809161114060_UpdatedCustomerNUllableFields.Designer.cs">
+      <DependentUpon>201809161114060_UpdatedCustomerNUllableFields.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MemberShipType.cs" />
+    <Compile Include="Models\Min18YrsIfAMemeber.cs" />
     <Compile Include="Models\Movie.cs" />
     <Compile Include="Models\MovieGenre.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -298,7 +315,8 @@
     <Compile Include="ViewModels\DetailMovieViewModel.cs" />
     <Compile Include="ViewModels\ListAllCustomersViewModel.cs" />
     <Compile Include="ViewModels\ListAllMoviesViewModel.cs" />
-    <Compile Include="ViewModels\CusromerFormViewModel.cs" />
+    <Compile Include="ViewModels\CustomerFormViewModel.cs" />
+    <Compile Include="ViewModels\MovieFormViewModel.cs" />
     <Compile Include="ViewModels\RandomMovieViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -371,6 +389,7 @@
     <Content Include="Views\Customers\Index.cshtml" />
     <Content Include="Views\Movies\Details.cshtml" />
     <Content Include="Views\Customers\CustomerForm.cshtml" />
+    <Content Include="Views\Movies\MovieForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -443,6 +462,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201809111429066_NewSqlstuff.resx">
       <DependentUpon>201809111429066_NewSqlstuff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809160800448_removedAgePropertyFromCustomer.resx">
+      <DependentUpon>201809160800448_removedAgePropertyFromCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809160856490_DeleteYolandiRecords.resx">
+      <DependentUpon>201809160856490_DeleteYolandiRecords.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809161008017_AddedMovieGenereId.resx">
+      <DependentUpon>201809161008017_AddedMovieGenereId.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809161114060_UpdatedCustomerNUllableFields.resx">
+      <DependentUpon>201809161114060_UpdatedCustomerNUllableFields.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

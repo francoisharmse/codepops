@@ -41,9 +41,8 @@ namespace Vidly.Models
         /// set birthdate - this field is optional
         /// </summary>
         [Display(Name = "Date of birth")]
-        public DateTime BirthDate { get; set; }
-
-        public int age { get; set; }
+        [Min18YrsIfAMemeber]
+        public DateTime? BirthDate { get; set; }
 
     }
 }

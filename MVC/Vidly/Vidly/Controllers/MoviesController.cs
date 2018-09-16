@@ -8,6 +8,7 @@ using System.Web.Mvc;
 using Vidly.Models;
 using Vidly.ViewModels;
 using System.Data.Entity;
+using System.Data.Entity.Validation;
 
 namespace Vidly.Controllers
 {
@@ -92,7 +93,43 @@ namespace Vidly.Controllers
         /// <returns></returns>
         public ActionResult Edit(int id)
         {
-            return Content("id = " + id);
+            var movie = _dbContext.Movies.FirstOrDefault(m => m.Id == id);
+            if (movie == null)
+                return HttpNotFound();
+
+            var viewModel = new MovieFormViewModel
+            {
+                Movie = movie,
+                MovieGenres = _dbContext.MovieGenreTypes.ToList()
+            };
+
+            return View("MovieForm", viewModel);
+        }
+
+        /// <summary>
+        /// Save Movie
+        /// </summary>
+        /// <param name="movie">movie object</param>
+        /// <returns></returns>
+        [HttpPost]
+        public ActionResult Save(Movie movie)
+        {
+            if (movie.Id == 0)
+                _dbContext.Movies.Add(movie);
+            else
+            {
+                var moviesInDb = _dbContext.Movies.FirstOrDefault(m => m.Id == movie.Id);
+
+                moviesInDb.Name = movie.Name;
+                moviesInDb.DateAdded = movie.DateAdded;
+                moviesInDb.MovieGenreId = movie.MovieGenreId;
+                moviesInDb.ReleaseDate = movie.ReleaseDate;
+                moviesInDb.StockCount = movie.StockCount;
+            }
+
+            _dbContext.SaveChanges();
+
+            return RedirectToAction("ListMovies", "Movies");
         }
 
         /// <summary>
@@ -143,12 +180,26 @@ namespace Vidly.Controllers
         /// <param name="id">id of movie</param>
         /// <returns></returns>
         [Route("movie/details/{id}")]
-
         public ActionResult Details(int id)
         {
             //get movie detail from DB, with Include which links the Genre table / object
             var movieDetail = new DetailMovieViewModel() { Movie = _dbContext.Movies.Include(c => c.MovieGenre).SingleOrDefault(customer => customer.Id == id) };
             return View(movieDetail);
+        }
+
+        /// <summary>
+        /// Create a new movie object from a form
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult New()
+        {
+            var genres = _dbContext.MovieGenreTypes.ToList();
+            var viewModel = new MovieFormViewModel
+            {
+                MovieGenres = genres
+            };
+
+            return View("MovieForm", viewModel);
         }
     }
 }
