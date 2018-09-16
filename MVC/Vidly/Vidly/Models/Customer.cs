@@ -45,7 +45,5 @@ namespace Vidly.Models
 
         public int age { get; set; }
 
-
-
     }
 }

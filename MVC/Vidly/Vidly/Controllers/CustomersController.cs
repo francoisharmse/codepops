@@ -43,11 +43,11 @@ namespace Vidly.Controllers
         public ActionResult New()
         {
             var membershipTypes = _dbContext.MemberShipTypes.ToList();
-            var viewModel = new NewCustomerViewModel()
+            var viewModel = new CusromerFormViewModel()
             {
                 MemberShipTypes = membershipTypes
             };
-            return View(viewModel);
+            return View("CustomerForm", viewModel);
         }
 
         [HttpPost]
@@ -105,6 +105,22 @@ namespace Vidly.Controllers
 
             var customerDetail = new DetailCustomerViewModel() { Customer = _dbContext.Customers.Include(c => c.MemberShipType).SingleOrDefault(customer => customer.Id == id) };
             return View(customerDetail);
+        }
+
+        public ActionResult Edit(int id)
+        {
+            var customer = _dbContext.Customers.FirstOrDefault(c => c.Id == id);
+
+            if (customer == null)
+                return HttpNotFound();
+
+            var viewModel = new CusromerFormViewModel
+            {
+                Customer = customer,
+                MemberShipTypes = _dbContext.MemberShipTypes.ToList()
+            };
+
+            return View("CustomerForm", viewModel);
         }
     }
 
