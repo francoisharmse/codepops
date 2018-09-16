@@ -208,3 +208,9 @@ C:\mycode\codepops\MVC\Vidly\Vidly\obj\Debug\Vidly.csproj.CoreCompileInputs.cach
 C:\mycode\codepops\MVC\Vidly\Vidly\obj\Debug\Vidly.dll
 C:\mycode\codepops\MVC\Vidly\Vidly\obj\Debug\Vidly.pdb
 C:\mycode\codepops\MVC\Vidly\Vidly\obj\Debug\Vidly.Migrations.UpdatedCustomerNUllableFields.resources
+C:\mycode\codepops\MVC\Vidly\Vidly\bin\System.Net.Http.Formatting.dll
+C:\mycode\codepops\MVC\Vidly\Vidly\bin\System.Web.Http.dll
+C:\mycode\codepops\MVC\Vidly\Vidly\bin\System.Web.Http.WebHost.dll
+C:\mycode\codepops\MVC\Vidly\Vidly\bin\System.Net.Http.Formatting.xml
+C:\mycode\codepops\MVC\Vidly\Vidly\bin\System.Web.Http.xml
+C:\mycode\codepops\MVC\Vidly\Vidly\bin\System.Web.Http.WebHost.xml
