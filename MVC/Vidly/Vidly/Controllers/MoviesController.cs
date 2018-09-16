@@ -17,7 +17,6 @@ namespace Vidly.Controllers
     /// </summary>
     public class MoviesController : Controller
     {
-
         private ApplicationDbContext _dbContext;
 
         ///// <summary>
@@ -112,10 +111,14 @@ namespace Vidly.Controllers
         /// <param name="movie">movie object</param>
         /// <returns></returns>
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Save(Movie movie)
         {
             if (movie.Id == 0)
+            {
+                movie.DateAdded = DateTime.Today;
                 _dbContext.Movies.Add(movie);
+            }
             else
             {
                 var moviesInDb = _dbContext.Movies.FirstOrDefault(m => m.Id == movie.Id);
@@ -196,6 +199,7 @@ namespace Vidly.Controllers
             var genres = _dbContext.MovieGenreTypes.ToList();
             var viewModel = new MovieFormViewModel
             {
+                Movie = new Movie(),
                 MovieGenres = genres
             };
 

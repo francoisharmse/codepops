@@ -38,9 +38,10 @@ namespace Vidly.Models
         /// </summary>
         [Required]
         [Display(Name = "Number in Stock")]
+        [Range(1,20)]
         public byte StockCount { get; set; }
 
-        /// <summary>
+        /// <summary>   
         /// Movie release date
         /// </summary>
         [Required]

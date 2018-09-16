@@ -6,6 +6,7 @@ using Vidly.Models;
 
 namespace Vidly.ViewModels
 {
+
     /// <summary>
     /// Movie Form View Model
     /// </summary>
@@ -20,5 +21,16 @@ namespace Vidly.ViewModels
         /// Movie Object
         /// </summary>
         public Movie Movie { get; set; }
+
+        public string Title
+        {
+            get
+            {
+                if (Movie != null && Movie.Id != 0)
+                    return "Ëdit Movie";
+
+                return "New Movie";
+            }
+        }
     }
 }
