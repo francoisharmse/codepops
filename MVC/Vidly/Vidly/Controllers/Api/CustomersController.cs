@@ -1,11 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Data.Entity;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using AutoMapper;
 using Microsoft.Ajax.Utilities;
+using Vidly.Dtos;
 using Vidly.Models;
+using System.Data.Entity;
 
 namespace Vidly.Controllers.Api
 {
@@ -22,81 +26,100 @@ namespace Vidly.Controllers.Api
         /// GET /api/customers
         /// </summary>
         /// <returns></returns>
-        public IEnumerable<Customer> GetCustomers()
+        public IHttpActionResult GetCustomers()
         {
-            return _context.Customers.ToList();
+            var customerDtos = _context.Customers.Include(m => m.MemberShipType).ToList().Select(Mapper.Map<Customer, CustomerDto>);
+            //var customers = _context.Customers.Include(m => m.MemberShipType).ToList();
+
+            return Ok(customerDtos);
         }
 
         /// <summary>
-        /// GET /api/customer
+        /// GET /api/customers/1
         /// </summary>
-        /// <param name="id">pass in ID for customer</param>
+        /// <param name="id">pass in ID for customerDto</param>
         /// <returns></returns>
-        public Customer GetCustomer(int id)
+        public IHttpActionResult GetCustomer(int id)
         {
-            var customer = _context.Customers.FirstOrDefault(c => c.Id == id);
+            var customer = _context.Customers.Include(c => c.MemberShipType).FirstOrDefault(c => c.Id == id);
 
             if (customer == null)
-                throw new HttpResponseException(HttpStatusCode.NotFound);
+                return NotFound();
+            //throw new HttpResponseException(HttpStatusCode.NotFound);
 
-            return customer;
+            return Ok(Mapper.Map<Customer, CustomerDto>(customer));
         }
 
         /// <summary>
         /// POST /api/customers
         /// </summary>
-        /// <param name="customer"></param>
+        /// <param name="customerDto"></param>
         /// <returns></returns>
         [HttpPost]
-        public Customer CreateCustomer(Customer customer)
+        public IHttpActionResult CreateCustomer(CustomerDto customerDto)
         {
             if (!ModelState.IsValid)
-                throw new HttpResponseException(HttpStatusCode.BadRequest);
+                return BadRequest();
+            //throw new HttpResponseException(HttpStatusCode.BadRequest);
+
+            var customer = Mapper.Map<CustomerDto, Customer>(customerDto);
 
             _context.Customers.Add(customer);
             _context.SaveChanges();
 
-            return customer;
+            customerDto.Id = customer.Id;
+
+            return Created(new Uri(Request.RequestUri + "/" + customer.Id), customerDto);
         }
 
         /// <summary>
-        /// PUT /api/customer/1
+        /// PUT /api/customerDto/1
         /// </summary>
-        /// <param name="id">the customer ID</param>
-        /// <param name="customer"></param>
+        /// <param name="id">the customerDto ID</param>
+        /// <param name="customerDto"></param>
         [HttpPut]
-        public void UpdateCustomer(int id, Customer customer)
+        public IHttpActionResult UpdateCustomer(int id, CustomerDto customerDto)
         {
             if (!ModelState.IsValid)
-                throw new HttpResponseException(HttpStatusCode.BadRequest);
+                return BadRequest();
+            //throw new HttpResponseException(HttpStatusCode.BadRequest);
 
             var customerInDb = _context.Customers.FirstOrDefault(c => c.Id == id);
 
             if (customerInDb == null)
-                throw new HttpResponseException(HttpStatusCode.NotFound);
+                return NotFound();
+            //throw new HttpResponseException(HttpStatusCode.NotFound);
 
-            customerInDb.Name = customer.Name;
-            customerInDb.BirthDate = customer.BirthDate;
-            customerInDb.IsSubScribedToNewsLetter = customer.IsSubScribedToNewsLetter;
-            customerInDb.MembershipTypeId = customer.MembershipTypeId;
+            Mapper.Map(customerDto, customerInDb);
+
+            //lines below were replaced by above statement
+            //customerInDb.Name = customerDto.Name;
+            //customerInDb.BirthDate = customerDto.BirthDate;
+            //customerInDb.IsSubScribedToNewsLetter = customerDto.IsSubScribedToNewsLetter;
+            //customerInDb.MembershipTypeId = customerDto.MembershipTypeId;
 
             _context.SaveChanges();
+
+            return StatusCode(HttpStatusCode.Accepted);
         }
 
         /// <summary>
-        /// DELETE /api/customer/1
+        /// DELETE /api/customerDto/1
         /// </summary>
-        /// <param name="id">ID of customer</param>
+        /// <param name="id">ID of customerDto</param>
         [HttpDelete]
-        public void DeleteCustomer(int id)
+        public IHttpActionResult DeleteCustomer(int id)
         {
             var customerInDb = _context.Customers.FirstOrDefault(c => c.Id == id);
 
             if (customerInDb == null)
-                throw new HttpResponseException(HttpStatusCode.NotFound);
+                return NotFound();
+            //throw new HttpResponseException(HttpStatusCode.NotFound);
 
             _context.Customers.Remove(customerInDb);
             _context.SaveChanges();
+
+            return StatusCode(HttpStatusCode.Accepted);
         }
     }
 }

@@ -9,7 +9,7 @@
 <h2>Listing Customer Details</h2>
 <h3>@Model.Customer.Name</h3>
 <ul>
-  <li>Membership Type: @Model.Customer.MemberShipType.MemberShipTypeName</li>
+  <li>Membership Type: @Model.Customer.MemberShipType.MemberShipType</li>
   @if (@Model.Customer.BirthDate.ToShortDateString() != "1900/01/01")
   {
     <li>Birthdate: @Model.Customer.BirthDate.ToShortDateString()</li>

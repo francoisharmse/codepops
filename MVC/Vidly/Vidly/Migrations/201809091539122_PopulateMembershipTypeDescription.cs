@@ -7,10 +7,10 @@ namespace Vidly.Migrations
     {
         public override void Up()
         {
-            Sql("update MemberShipTypes set MemberShipTypeName = 'Pay As You Go' where DurationMonths = 0");
-            Sql("update MemberShipTypes set MemberShipTypeName = 'Monthly' where DurationMonths = 1");
-            Sql("update MemberShipTypes set MemberShipTypeName = 'Quarterly' where DurationMonths = 3");
-            Sql("update MemberShipTypes set MemberShipTypeName = 'Yearly' where DurationMonths = 12");
+            Sql("update MemberShipTypes set MemberShipType = 'Pay As You Go' where DurationMonths = 0");
+            Sql("update MemberShipTypes set MemberShipType = 'Monthly' where DurationMonths = 1");
+            Sql("update MemberShipTypes set MemberShipType = 'Quarterly' where DurationMonths = 3");
+            Sql("update MemberShipTypes set MemberShipType = 'Yearly' where DurationMonths = 12");
         }
         
         public override void Down()

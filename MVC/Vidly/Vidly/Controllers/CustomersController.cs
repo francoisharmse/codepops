@@ -115,9 +115,9 @@ namespace Vidly.Controllers
             //else it would only have executed in the View method.
             //var listAllCustomers = _dbContext.Customers.ToList();
 
-            var listAllCustomers = new ListAllCustomersViewModel { Customers = _dbContext.Customers.Include(c => c.MemberShipType).ToList() };
+            //var listAllCustomers = new ListAllCustomersViewModel { Customers = _dbContext.Customers.Include(c => c.MemberShipType).ToList() };
 
-            return View(listAllCustomers);
+            return View();
         }
 
         /// <summary>
