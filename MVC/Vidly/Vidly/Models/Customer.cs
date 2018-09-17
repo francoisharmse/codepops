@@ -44,5 +44,6 @@ namespace Vidly.Models
         [Min18YrsIfAMemeber]
         public DateTime? BirthDate { get; set; }
 
+        public int Age { get; set; }
     }
 }

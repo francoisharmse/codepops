@@ -319,6 +319,10 @@
     <Compile Include="Migrations\201809161114060_UpdatedCustomerNUllableFields.Designer.cs">
       <DependentUpon>201809161114060_UpdatedCustomerNUllableFields.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201809171603185_AddedAgetoCustomer.cs" />
+    <Compile Include="Migrations\201809171603185_AddedAgetoCustomer.Designer.cs">
+      <DependentUpon>201809171603185_AddedAgetoCustomer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -668,6 +672,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201809161114060_UpdatedCustomerNUllableFields.resx">
       <DependentUpon>201809161114060_UpdatedCustomerNUllableFields.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809171603185_AddedAgetoCustomer.resx">
+      <DependentUpon>201809171603185_AddedAgetoCustomer.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -216,3 +216,4 @@ C:\mycode\codepops\MVC\Vidly\Vidly\obj\Debug\Vidly.csproj.CoreCompileInputs.cach
 C:\mycode\codepops\MVC\Vidly\Vidly\obj\Debug\Vidly.dll
 C:\mycode\codepops\MVC\Vidly\Vidly\obj\Debug\Vidly.pdb
 C:\mycode\codepops\MVC\Vidly\Vidly\obj\Debug\Vidly.csprojResolveAssemblyReference.cache
+C:\mycode\codepops\MVC\Vidly\Vidly\obj\Debug\Vidly.Migrations.AddedAgetoCustomer.resources
